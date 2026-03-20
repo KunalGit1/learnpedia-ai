@@ -1,0 +1,224 @@
+{
+  "books": [
+    {
+      "id": "ai-wealth-code",
+      "slug": "ai-wealth-code",
+      "title": "The AI Wealth Code",
+      "subtitle": "How 10,000+ Entrepreneurs Are Printing Digital Income with AI",
+      "description": "Discover the exact AI systems and strategies used by the world's fastest-growing digital entrepreneurs. This comprehensive guide reveals how to build 5 automated income streams using AI tools—no coding required, no large investment needed. Includes step-by-step playbooks, templates, and real case studies.",
+      "category": "AI & Income",
+      "pages": 134,
+      "gradient": "from-violet-700 via-purple-800 to-indigo-900",
+      "accentColor": "#8b5cf6",
+      "tier": "starter",
+      "bestseller": true,
+      "new": false,
+      "topics": ["AI automation", "Digital income", "Passive revenue", "ChatGPT monetization", "AI side hustles"]
+    },
+    {
+      "id": "digital-empire-blueprint",
+      "slug": "digital-empire-blueprint",
+      "title": "Digital Empire Blueprint",
+      "subtitle": "Build a 6-Figure Online Business from Scratch in 90 Days",
+      "description": "The definitive roadmap for building a profitable digital product business from zero. Covers product creation, pricing psychology, launch strategy, funnel building, and scaling to ₹10L+ per month. Packed with frameworks, checklists, and real revenue screenshots.",
+      "category": "Business Strategy",
+      "pages": 178,
+      "gradient": "from-blue-700 via-cyan-800 to-teal-900",
+      "accentColor": "#0ea5e9",
+      "tier": "starter",
+      "bestseller": true,
+      "new": false,
+      "topics": ["Digital products", "Launch strategy", "Sales funnels", "Scaling", "Pricing"]
+    },
+    {
+      "id": "prompt-millionaire",
+      "slug": "prompt-millionaire",
+      "title": "The Prompt Millionaire",
+      "subtitle": "500+ ChatGPT & Claude Prompts That Turn Ideas Into Rupees",
+      "description": "The most comprehensive prompt library for entrepreneurs. Includes 500+ battle-tested prompts for content creation, sales copy, email marketing, business planning, product development, and client acquisition. Each prompt includes variations, examples, and monetization strategies.",
+      "category": "AI Prompts",
+      "pages": 212,
+      "gradient": "from-emerald-700 via-green-800 to-teal-900",
+      "accentColor": "#10b981",
+      "tier": "starter",
+      "bestseller": false,
+      "new": true,
+      "topics": ["ChatGPT", "Claude AI", "Prompt engineering", "Content creation", "Copywriting"]
+    },
+    {
+      "id": "zero-to-creator",
+      "slug": "zero-to-creator",
+      "title": "Zero to Creator",
+      "subtitle": "Launch Your First Digital Product & Make Your First ₹1 Lakh Online",
+      "description": "The beginner's bible for digital entrepreneurship. Step-by-step guide to creating your first ebook, online course, or digital template—and selling it profitably. Includes a 30-day action plan, Canva templates, email scripts, and a pre-launch checklist used by 5,000+ creators.",
+      "category": "Creator Economy",
+      "pages": 96,
+      "gradient": "from-orange-600 via-rose-700 to-pink-800",
+      "accentColor": "#f97316",
+      "tier": "starter",
+      "bestseller": false,
+      "new": true,
+      "topics": ["Digital products", "Creator economy", "First sale", "Canva", "Email marketing"]
+    },
+    {
+      "id": "no-code-revolution",
+      "slug": "no-code-revolution",
+      "title": "The No-Code Revolution",
+      "subtitle": "Build Profitable Apps, Bots & Automations Without Writing a Line of Code",
+      "description": "Unlock the power of no-code and AI automation tools to build real businesses. Covers Zapier, Make.com, Bubble, Notion, Webflow, and 20+ tools. Includes 15 real business blueprints you can launch this week, from SaaS clones to automated agencies—all without a developer.",
+      "category": "No-Code & Automation",
+      "pages": 158,
+      "gradient": "from-slate-700 via-blue-900 to-indigo-950",
+      "accentColor": "#6366f1",
+      "tier": "pro",
+      "bestseller": false,
+      "new": false,
+      "topics": ["No-code", "Automation", "Make.com", "Zapier", "SaaS", "Bubble"]
+    }
+  ],
+  "audiobooks": [
+    {
+      "id": "ai-wealth-code-audio",
+      "slug": "ai-wealth-code-audio",
+      "title": "The AI Wealth Code",
+      "subtitle": "Audio Edition — Listen & Learn",
+      "description": "The full AI Wealth Code experience in immersive audio. Narrated by a professional voice artist with music beds and chapter summaries. Perfect for your commute, workout, or morning routine.",
+      "category": "AI & Income",
+      "duration": "4h 22m",
+      "gradient": "from-violet-800 via-purple-900 to-black",
+      "accentColor": "#8b5cf6",
+      "tier": "pro",
+      "new": false
+    },
+    {
+      "id": "morning-mindset-millionaire",
+      "slug": "morning-mindset-millionaire",
+      "title": "Morning Mindset Millionaire",
+      "subtitle": "The 5AM Routine That Builds 7-Figure Entrepreneurs",
+      "description": "Exclusive audio experience. Start every morning with the exact mindset rituals, mental frameworks, and visualisation exercises used by successful entrepreneurs worldwide. 30 daily episodes, each under 10 minutes.",
+      "category": "Mindset & Habits",
+      "duration": "5h 10m",
+      "gradient": "from-amber-700 via-orange-800 to-red-900",
+      "accentColor": "#f59e0b",
+      "tier": "pro",
+      "new": true
+    },
+    {
+      "id": "focused-founder",
+      "slug": "focused-founder",
+      "title": "The Focused Founder",
+      "subtitle": "Deep Work & Flow State Mastery for Entrepreneurs",
+      "description": "Learn the neuroscience of peak performance and how to design your life for maximum output. Covers deep work protocols, distraction elimination, energy management, and how top founders produce a week's worth of work in 2 days.",
+      "category": "Productivity",
+      "duration": "3h 45m",
+      "gradient": "from-teal-700 via-cyan-800 to-blue-900",
+      "accentColor": "#14b8a6",
+      "tier": "pro",
+      "new": false
+    },
+    {
+      "id": "digital-empire-audio",
+      "slug": "digital-empire-audio",
+      "title": "Digital Empire Blueprint",
+      "subtitle": "Audio Edition — Full Narration",
+      "description": "The complete Digital Empire Blueprint in audio format. All 178 pages narrated with emphasis on actionable steps. Includes bonus audio-only interviews with 3 successful digital product entrepreneurs.",
+      "category": "Business Strategy",
+      "duration": "6h 30m",
+      "gradient": "from-blue-800 via-indigo-900 to-black",
+      "accentColor": "#3b82f6",
+      "tier": "pro",
+      "new": false
+    }
+  ],
+  "aiTools": [
+    {
+      "id": "ai-image-generator",
+      "title": "AI Image Generator",
+      "description": "Generate stunning product covers, social media graphics, ebook mockups, and marketing visuals in seconds. Powered by FLUX.1 — the world's most advanced image model.",
+      "icon": "Sparkles",
+      "tier": "pro",
+      "status": "live",
+      "tags": ["Book Covers", "Social Media", "Product Mockups", "Thumbnails"]
+    },
+    {
+      "id": "ai-content-writer",
+      "title": "AI Content Writer",
+      "description": "Write complete ebooks, blog posts, email sequences, sales pages, and social media content. Just enter a topic and get publish-ready content in minutes. 20+ templates included.",
+      "icon": "PenTool",
+      "tier": "pro",
+      "status": "live",
+      "tags": ["Ebooks", "Blog Posts", "Sales Copy", "Email Sequences"]
+    },
+    {
+      "id": "prompt-library",
+      "title": "AI Prompt Library",
+      "description": "Access 500+ curated prompts organised by use case — marketing, product creation, sales, customer support, and more. Each prompt is tested and optimised for maximum output quality.",
+      "icon": "Library",
+      "tier": "starter",
+      "status": "live",
+      "tags": ["Marketing", "Sales", "Content", "Strategy"]
+    },
+    {
+      "id": "ai-business-planner",
+      "title": "AI Business Planner",
+      "description": "Generate complete business plans, go-to-market strategies, competitive analysis reports, and financial projections for any business idea. Investor-ready output in under 5 minutes.",
+      "icon": "BarChart3",
+      "tier": "pro",
+      "status": "coming-soon",
+      "tags": ["Business Plans", "Strategy", "Financial Projections", "GTM"]
+    },
+    {
+      "id": "ai-social-kit",
+      "title": "AI Social Media Kit",
+      "description": "Automate your entire social media presence. Generate a month of content, captions, hashtag sets, and posting schedules tailored to your niche and audience in one click.",
+      "icon": "Share2",
+      "tier": "pro",
+      "status": "coming-soon",
+      "tags": ["Instagram", "LinkedIn", "Twitter/X", "Content Calendar"]
+    }
+  ],
+  "pricing": {
+    "starter": {
+      "name": "Starter",
+      "price": 999,
+      "currency": "INR",
+      "label": "One-Time Payment",
+      "description": "Everything you need to start your digital journey",
+      "features": [
+        "50+ Premium Digital Books",
+        "AI Prompt Library (500+ prompts)",
+        "Private Label Rights (Resell & Rebrand)",
+        "Lifetime Access — Pay Once, Keep Forever",
+        "New Book Releases (3 months)",
+        "Community Access",
+        "Email Support"
+      ],
+      "notIncluded": [
+        "Audiobooks Library",
+        "AI Image Generator",
+        "AI Content Writer",
+        "AI Business Planner"
+      ]
+    },
+    "pro": {
+      "name": "Pro",
+      "price": 1999,
+      "currency": "INR",
+      "label": "One-Time Payment",
+      "description": "The complete AI-powered creator toolkit",
+      "popular": true,
+      "features": [
+        "Everything in Starter",
+        "20+ Premium Audiobooks",
+        "AI Image Generator",
+        "AI Content Writer",
+        "AI Business Planner (Coming Soon)",
+        "AI Social Media Kit (Coming Soon)",
+        "New Book & Audiobook Releases Forever",
+        "Request New Products",
+        "Priority Support",
+        "Resell Rights Included"
+      ]
+    }
+  }
+}
