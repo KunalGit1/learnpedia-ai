@@ -127,9 +127,14 @@ export default function DashboardClient({ user, profile, purchases }: Props) {
                         Upgrade to Pro
                       </Link>
                     ) : (
-                      <button className="flex items-center gap-1 text-[10px] text-violet-400 hover:text-violet-300 mx-auto transition-colors">
+                      <a
+                        href={`/api/download?bookId=${book.id}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-1 text-[10px] text-violet-400 hover:text-violet-300 mx-auto transition-colors"
+                      >
                         <Download className="w-3 h-3" /> Download PDF
-                      </button>
+                      </a>
                     )}
                   </div>
                 </motion.div>
