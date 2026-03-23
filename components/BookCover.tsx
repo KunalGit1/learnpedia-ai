@@ -30,9 +30,12 @@ export default function BookCover({
         'relative flex-shrink-0 rounded-xl overflow-hidden cursor-pointer select-none',
         'shadow-[0_20px_60px_rgba(0,0,0,0.6)]'
       )}
-      style={tilt ? { transform: `perspective(800px) rotateY(-8deg) rotateX(2deg)` } : undefined}
+      style={{ transformPerspective: 800 }}
+      initial={tilt ? { rotateY: -8, rotateX: 2 } : { rotateY: 0, rotateX: 0 }}
       whileHover={{
-        transform: 'perspective(800px) rotateY(0deg) rotateX(0deg) scale(1.04)',
+        rotateY: 0,
+        rotateX: 0,
+        scale: 1.04,
         boxShadow: `0 30px 80px rgba(0,0,0,0.7), 0 0 40px ${accentColor}33`,
         transition: { duration: 0.3 },
       }}
