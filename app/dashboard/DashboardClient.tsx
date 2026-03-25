@@ -188,6 +188,78 @@ export default function DashboardClient({ user, profile, purchases }: Props) {
         </section>
       )}
 
+      {/* AI Tools */}
+      {hasAccess && (
+        <section className="mb-12">
+          <div className="flex items-center justify-between mb-6">
+            <h2 className="text-xl font-black text-white flex items-center gap-2">
+              <Sparkles className="w-5 h-5 text-amber-400" />
+              AI Tools
+            </h2>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+            {/* AI Content Writer — all plans */}
+            <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.05 }}
+              className="glass-hover rounded-2xl p-6 card-hover border border-white/5 hover:border-violet-500/30 transition-colors">
+              <div className="w-10 h-10 rounded-xl bg-violet-500/15 flex items-center justify-center mb-4">
+                <Sparkles className="w-5 h-5 text-violet-400" />
+              </div>
+              <h3 className="text-white font-bold mb-1">AI Content Writer</h3>
+              <p className="text-slate-500 text-xs mb-4 leading-relaxed">Generate blog posts, ebook chapters, email sequences, sales pages & social media content instantly.</p>
+              <div className="flex items-center justify-between">
+                <span className="text-[10px] text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 px-2 py-0.5 rounded-full">Available</span>
+                <Link href="/tools/write" className="flex items-center gap-1 text-xs text-violet-400 hover:text-violet-300 transition-colors font-medium">
+                  Open Tool <ArrowRight className="w-3 h-3" />
+                </Link>
+              </div>
+            </motion.div>
+
+            {/* AI Image Generator — pro only */}
+            <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }}
+              className={`glass-hover rounded-2xl p-6 card-hover border border-white/5 transition-colors ${isPro ? 'hover:border-amber-500/30' : 'opacity-60'}`}>
+              <div className="w-10 h-10 rounded-xl bg-amber-500/15 flex items-center justify-center mb-4">
+                <Sparkles className="w-5 h-5 text-amber-400" />
+              </div>
+              <h3 className="text-white font-bold mb-1">AI Image Generator</h3>
+              <p className="text-slate-500 text-xs mb-4 leading-relaxed">Generate book covers, social graphics, thumbnails & product mockups using FLUX.1 — the world's best image model.</p>
+              <div className="flex items-center justify-between">
+                {isPro ? (
+                  <>
+                    <span className="text-[10px] text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 px-2 py-0.5 rounded-full">Pro</span>
+                    <Link href="/tools/image" className="flex items-center gap-1 text-xs text-amber-400 hover:text-amber-300 transition-colors font-medium">
+                      Open Tool <ArrowRight className="w-3 h-3" />
+                    </Link>
+                  </>
+                ) : (
+                  <>
+                    <span className="text-[10px] text-amber-400 bg-amber-500/10 border border-amber-500/20 px-2 py-0.5 rounded-full flex items-center gap-1"><Lock className="w-2.5 h-2.5" /> Pro only</span>
+                    <Link href="/checkout?plan=pro" className="flex items-center gap-1 text-xs text-amber-400 hover:text-amber-300 transition-colors font-medium">
+                      Upgrade <ArrowRight className="w-3 h-3" />
+                    </Link>
+                  </>
+                )}
+              </div>
+            </motion.div>
+
+            {/* Prompt Library — all plans */}
+            <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.15 }}
+              className="glass-hover rounded-2xl p-6 card-hover border border-white/5 hover:border-cyan-500/30 transition-colors">
+              <div className="w-10 h-10 rounded-xl bg-cyan-500/15 flex items-center justify-center mb-4">
+                <Sparkles className="w-5 h-5 text-cyan-400" />
+              </div>
+              <h3 className="text-white font-bold mb-1">Prompt Library</h3>
+              <p className="text-slate-500 text-xs mb-4 leading-relaxed">500+ battle-tested prompts for marketing, sales, content creation, business planning & more.</p>
+              <div className="flex items-center justify-between">
+                <span className="text-[10px] text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 px-2 py-0.5 rounded-full">Available</span>
+                <Link href="/tools/prompts" className="flex items-center gap-1 text-xs text-cyan-400 hover:text-cyan-300 transition-colors font-medium">
+                  Browse <ArrowRight className="w-3 h-3" />
+                </Link>
+              </div>
+            </motion.div>
+          </div>
+        </section>
+      )}
+
       {/* Purchase history */}
       {purchases.length > 0 && (
         <section>
