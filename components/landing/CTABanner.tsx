@@ -44,21 +44,14 @@ export default function CTABanner() {
 
             <div className="flex flex-col gap-3 w-full md:w-auto">
               <Link
-                href="/checkout?plan=pro"
+                href="/checkout"
                 className="flex items-center justify-center gap-2 bg-white text-violet-700 font-black px-8 py-4 rounded-xl text-sm whitespace-nowrap hover:bg-white/90 transition-all shadow-2xl shadow-black/30 hover:scale-105"
               >
                 <Crown className="w-4 h-4" />
-                Get Pro — ₹1,999
+                Get All Access — ₹1,999
                 <ArrowRight className="w-4 h-4" />
               </Link>
-              <Link
-                href="/checkout?plan=starter"
-                className="flex items-center justify-center gap-2 bg-white/10 backdrop-blur-sm text-white font-semibold px-8 py-3.5 rounded-xl text-sm whitespace-nowrap border border-white/20 hover:bg-white/20 transition-all"
-              >
-                <Sparkles className="w-4 h-4" />
-                Starter — ₹999
-              </Link>
-              <p className="text-white/50 text-xs text-center">7-day money-back guarantee</p>
+              <p className="text-white/50 text-xs text-center">7-day money-back guarantee · Pay once, own forever</p>
             </div>
           </div>
         </motion.div>

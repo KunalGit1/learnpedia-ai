@@ -5,14 +5,9 @@ export const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
 })
 
 export const PLANS = {
-  starter: {
-    priceId: process.env.STRIPE_STARTER_PRICE_ID!,
-    name: 'Starter',
-    amount: 999,
-  },
   pro: {
     priceId: process.env.STRIPE_PRO_PRICE_ID!,
-    name: 'Pro',
+    name: 'All Access',
     amount: 1999,
   },
 } as const

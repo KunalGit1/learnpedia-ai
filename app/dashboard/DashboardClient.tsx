@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion'
 import Link from 'next/link'
-import { BookOpen, Headphones, Sparkles, Crown, Download, LogOut, ArrowRight, Lock, CheckCircle } from 'lucide-react'
+import { BookOpen, Headphones, Sparkles, Crown, Download, LogOut, ArrowRight } from 'lucide-react'
 import BookCover from '@/components/BookCover'
 import products from '@/data/products.json'
 import { createClient } from '@/lib/supabase'
@@ -17,9 +17,7 @@ interface Props {
 export default function DashboardClient({ user, profile, purchases }: Props) {
   const router = useRouter()
   const supabase = createClient()
-  const plan = profile.plan
-  const isPro = plan === 'pro'
-  const hasAccess = plan === 'starter' || plan === 'pro'
+  const hasAccess = profile.plan === 'pro'
 
   const handleSignOut = async () => {
     await supabase.auth.signOut()
@@ -34,13 +32,11 @@ export default function DashboardClient({ user, profile, purchases }: Props) {
         <div>
           <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} className="flex items-center gap-3 mb-2">
             <div className={`px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider flex items-center gap-1.5 ${
-              isPro
+              hasAccess
                 ? 'bg-violet-500/20 text-violet-300 border border-violet-500/30'
-                : hasAccess
-                ? 'bg-emerald-500/20 text-emerald-300 border border-emerald-500/30'
                 : 'bg-slate-700 text-slate-400'
             }`}>
-              {isPro ? <><Crown className="w-3 h-3" /> Pro Member</> : hasAccess ? <><CheckCircle className="w-3 h-3" /> Starter Member</> : 'No Active Plan'}
+              {hasAccess ? <><Crown className="w-3 h-3" /> All Access</> : 'No Active Plan'}
             </div>
           </motion.div>
           <motion.h1 initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.05 }} className="text-3xl font-black text-white">
@@ -64,15 +60,11 @@ export default function DashboardClient({ user, profile, purchases }: Props) {
           <p className="text-slate-400 text-sm mb-6 max-w-md mx-auto">
             You have an account but no active plan yet. Get lifetime access to 50+ books, audiobooks & AI tools.
           </p>
-          <div className="flex flex-col sm:flex-row gap-3 justify-center">
-            <Link href="/checkout?plan=pro" className="btn-primary inline-flex justify-center text-sm px-8 py-3.5">
-              <Crown className="w-4 h-4 relative z-10" />
-              <span className="relative z-10">Get Pro — ₹1,999</span>
-            </Link>
-            <Link href="/checkout?plan=starter" className="btn-ghost inline-flex justify-center text-sm px-8 py-3.5">
-              Starter — ₹999
-            </Link>
-          </div>
+          <Link href="/checkout" className="btn-primary inline-flex justify-center text-sm px-8 py-3.5">
+            <Crown className="w-4 h-4 relative z-10" />
+            <span className="relative z-10">Get All Access — ₹1,999</span>
+            <ArrowRight className="w-4 h-4 relative z-10" />
+          </Link>
         </motion.div>
       )}
 
@@ -81,12 +73,11 @@ export default function DashboardClient({ user, profile, purchases }: Props) {
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-10">
           {[
             { icon: BookOpen, label: 'Digital Books', value: '50+', color: 'text-violet-400', bg: 'rgba(139,92,246,0.1)' },
-            { icon: Headphones, label: 'Audiobooks', value: isPro ? '20+' : '0', color: 'text-blue-400', bg: 'rgba(59,130,246,0.1)', locked: !isPro },
-            { icon: Sparkles, label: 'AI Tools', value: isPro ? '5' : '1', color: 'text-amber-400', bg: 'rgba(245,158,11,0.1)' },
-            { icon: Crown, label: 'Your Plan', value: isPro ? 'Pro' : 'Starter', color: isPro ? 'text-violet-400' : 'text-emerald-400', bg: 'rgba(139,92,246,0.1)' },
-          ].map(({ icon: Icon, label, value, color, bg, locked }, i) => (
-            <motion.div key={label} initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: i * 0.07 }} className="glass rounded-xl p-5 relative">
-              {locked && <Lock className="absolute top-3 right-3 w-3.5 h-3.5 text-slate-600" />}
+            { icon: Headphones, label: 'Audiobooks', value: '20+', color: 'text-blue-400', bg: 'rgba(59,130,246,0.1)' },
+            { icon: Sparkles, label: 'AI Tools', value: '3', color: 'text-amber-400', bg: 'rgba(245,158,11,0.1)' },
+            { icon: Crown, label: 'Your Plan', value: 'All Access', color: 'text-violet-400', bg: 'rgba(139,92,246,0.1)' },
+          ].map(({ icon: Icon, label, value, color, bg }, i) => (
+            <motion.div key={label} initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: i * 0.07 }} className="glass rounded-xl p-5">
               <div className="w-9 h-9 rounded-lg flex items-center justify-center mb-3" style={{ background: bg }}>
                 <Icon className={`w-5 h-5 ${color}`} />
               </div>
@@ -108,38 +99,24 @@ export default function DashboardClient({ user, profile, purchases }: Props) {
             <span className="text-xs text-slate-600">{products.books.length} books available</span>
           </div>
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6">
-            {products.books.map((book, i) => {
-              const locked = book.tier === 'pro' && !isPro
-              return (
-                <motion.div key={book.id} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: i * 0.06 }} className={`relative group ${locked ? 'opacity-50' : ''}`}>
-                  <div className="relative mb-3 mx-auto w-fit">
-                    <BookCover title={book.title} subtitle={book.subtitle} category={book.category} gradient={book.gradient} accentColor={book.accentColor} size="md" tilt={false} index={i} />
-                    {locked && (
-                      <div className="absolute inset-0 rounded-xl flex items-center justify-center bg-black/50">
-                        <Lock className="w-6 h-6 text-white/70" />
-                      </div>
-                    )}
-                  </div>
-                  <div className="text-center">
-                    <p className="text-white text-xs font-bold leading-snug mb-2">{book.title}</p>
-                    {locked ? (
-                      <Link href="/checkout?plan=pro" className="text-[10px] text-amber-400 border border-amber-400/30 px-2 py-0.5 rounded-full hover:bg-amber-400/10 transition-colors">
-                        Upgrade to Pro
-                      </Link>
-                    ) : (
-                      <a
-                        href={`/api/download?bookId=${book.id}`}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex items-center gap-1 text-[10px] text-violet-400 hover:text-violet-300 mx-auto transition-colors"
-                      >
-                        <Download className="w-3 h-3" /> Download PDF
-                      </a>
-                    )}
-                  </div>
-                </motion.div>
-              )
-            })}
+            {products.books.map((book, i) => (
+              <motion.div key={book.id} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: i * 0.06 }} className="relative group">
+                <div className="relative mb-3 mx-auto w-fit">
+                  <BookCover title={book.title} subtitle={book.subtitle} category={book.category} gradient={book.gradient} accentColor={book.accentColor} size="md" tilt={false} index={i} />
+                </div>
+                <div className="text-center">
+                  <p className="text-white text-xs font-bold leading-snug mb-2">{book.title}</p>
+                  <a
+                    href={`/api/download?bookId=${book.id}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-1 text-[10px] text-violet-400 hover:text-violet-300 mx-auto transition-colors"
+                  >
+                    <Download className="w-3 h-3" /> Download PDF
+                  </a>
+                </div>
+              </motion.div>
+            ))}
           </div>
         </section>
       )}
@@ -151,40 +128,26 @@ export default function DashboardClient({ user, profile, purchases }: Props) {
             <h2 className="text-xl font-black text-white flex items-center gap-2">
               <Headphones className="w-5 h-5 text-blue-400" />
               Audiobooks
-              {!isPro && <span className="text-xs text-slate-600 font-normal ml-2">— Pro only</span>}
             </h2>
           </div>
-          {isPro ? (
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
-              {products.audiobooks.map((book, i) => (
-                <motion.div key={book.id} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: i * 0.07 }} className={`glass-hover rounded-xl overflow-hidden card-hover`}>
-                  <div className={`h-32 bg-gradient-to-br ${book.gradient} flex items-center justify-center relative`}>
-                    <div className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center">
-                      <Headphones className="w-5 h-5 text-white" />
-                    </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+            {products.audiobooks.map((book, i) => (
+              <motion.div key={book.id} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: i * 0.07 }} className="glass-hover rounded-xl overflow-hidden card-hover">
+                <div className={`h-32 bg-gradient-to-br ${book.gradient} flex items-center justify-center`}>
+                  <div className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center">
+                    <Headphones className="w-5 h-5 text-white" />
                   </div>
-                  <div className="p-4">
-                    <p className="text-white font-bold text-xs leading-snug mb-1">{book.title}</p>
-                    <p className="text-slate-600 text-[10px] mb-3">{book.duration}</p>
-                    <button className="flex items-center gap-1 text-[10px] text-blue-400 hover:text-blue-300 transition-colors">
-                      <Download className="w-3 h-3" /> Download MP3
-                    </button>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-          ) : (
-            <div className="glass rounded-2xl p-8 text-center border border-amber-500/10">
-              <Lock className="w-8 h-8 text-amber-400 mx-auto mb-3" />
-              <p className="text-white font-bold mb-2">Audiobooks are Pro only</p>
-              <p className="text-slate-500 text-sm mb-5">Upgrade to unlock 20+ premium audiobooks</p>
-              <Link href="/checkout?plan=pro" className="btn-primary inline-flex text-sm px-6 py-3">
-                <Crown className="w-4 h-4 relative z-10" />
-                <span className="relative z-10">Upgrade to Pro — ₹1,999</span>
-                <ArrowRight className="w-4 h-4 relative z-10" />
-              </Link>
-            </div>
-          )}
+                </div>
+                <div className="p-4">
+                  <p className="text-white font-bold text-xs leading-snug mb-1">{book.title}</p>
+                  <p className="text-slate-600 text-[10px] mb-3">{book.duration}</p>
+                  <button className="flex items-center gap-1 text-[10px] text-blue-400 hover:text-blue-300 transition-colors">
+                    <Download className="w-3 h-3" /> Download MP3
+                  </button>
+                </div>
+              </motion.div>
+            ))}
+          </div>
         </section>
       )}
 
@@ -198,7 +161,6 @@ export default function DashboardClient({ user, profile, purchases }: Props) {
             </h2>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-            {/* AI Content Writer — all plans */}
             <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.05 }}
               className="glass-hover rounded-2xl p-6 card-hover border border-white/5 hover:border-violet-500/30 transition-colors">
               <div className="w-10 h-10 rounded-xl bg-violet-500/15 flex items-center justify-center mb-4">
@@ -214,34 +176,21 @@ export default function DashboardClient({ user, profile, purchases }: Props) {
               </div>
             </motion.div>
 
-            {/* AI Image Generator — pro only */}
             <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }}
-              className={`glass-hover rounded-2xl p-6 card-hover border border-white/5 transition-colors ${isPro ? 'hover:border-amber-500/30' : 'opacity-60'}`}>
+              className="glass-hover rounded-2xl p-6 card-hover border border-white/5 hover:border-amber-500/30 transition-colors">
               <div className="w-10 h-10 rounded-xl bg-amber-500/15 flex items-center justify-center mb-4">
                 <Sparkles className="w-5 h-5 text-amber-400" />
               </div>
               <h3 className="text-white font-bold mb-1">AI Image Generator</h3>
               <p className="text-slate-500 text-xs mb-4 leading-relaxed">Generate book covers, social graphics, thumbnails & product mockups using FLUX.1 — the world's best image model.</p>
               <div className="flex items-center justify-between">
-                {isPro ? (
-                  <>
-                    <span className="text-[10px] text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 px-2 py-0.5 rounded-full">Pro</span>
-                    <Link href="/tools/image" className="flex items-center gap-1 text-xs text-amber-400 hover:text-amber-300 transition-colors font-medium">
-                      Open Tool <ArrowRight className="w-3 h-3" />
-                    </Link>
-                  </>
-                ) : (
-                  <>
-                    <span className="text-[10px] text-amber-400 bg-amber-500/10 border border-amber-500/20 px-2 py-0.5 rounded-full flex items-center gap-1"><Lock className="w-2.5 h-2.5" /> Pro only</span>
-                    <Link href="/checkout?plan=pro" className="flex items-center gap-1 text-xs text-amber-400 hover:text-amber-300 transition-colors font-medium">
-                      Upgrade <ArrowRight className="w-3 h-3" />
-                    </Link>
-                  </>
-                )}
+                <span className="text-[10px] text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 px-2 py-0.5 rounded-full">Available</span>
+                <Link href="/tools/image" className="flex items-center gap-1 text-xs text-amber-400 hover:text-amber-300 transition-colors font-medium">
+                  Open Tool <ArrowRight className="w-3 h-3" />
+                </Link>
               </div>
             </motion.div>
 
-            {/* Prompt Library — all plans */}
             <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.15 }}
               className="glass-hover rounded-2xl p-6 card-hover border border-white/5 hover:border-cyan-500/30 transition-colors">
               <div className="w-10 h-10 rounded-xl bg-cyan-500/15 flex items-center justify-center mb-4">

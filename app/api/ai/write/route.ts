@@ -26,7 +26,7 @@ export async function POST(req: NextRequest) {
       .eq('id', user.id)
       .single()
 
-    if (!profile || !['starter', 'pro'].includes(profile.plan)) {
+    if (profile?.plan !== 'pro') {
       return NextResponse.json({ error: 'Active plan required' }, { status: 403 })
     }
 

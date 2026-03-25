@@ -11,7 +11,7 @@
       "gradient": "from-violet-700 via-purple-800 to-indigo-900",
       "accentColor": "#8b5cf6",
       "file": "02_Make_Money_with_AI.pdf",
-      "tier": "starter",
+      "tier": "pro",
       "bestseller": true,
       "new": false,
       "topics": ["AI automation", "Digital income", "Passive revenue", "ChatGPT monetization", "AI side hustles"]
@@ -27,7 +27,7 @@
       "gradient": "from-blue-700 via-cyan-800 to-teal-900",
       "accentColor": "#0ea5e9",
       "file": "05_Solopreneur_AI_Toolkit.pdf",
-      "tier": "starter",
+      "tier": "pro",
       "bestseller": true,
       "new": false,
       "topics": ["Digital products", "Launch strategy", "Sales funnels", "Scaling", "Pricing"]
@@ -43,7 +43,7 @@
       "gradient": "from-emerald-700 via-green-800 to-teal-900",
       "accentColor": "#10b981",
       "file": "01_AI_Productivity_Bible.pdf",
-      "tier": "starter",
+      "tier": "pro",
       "bestseller": false,
       "new": true,
       "topics": ["ChatGPT", "Claude AI", "Prompt engineering", "Content creation", "Copywriting"]
@@ -59,7 +59,7 @@
       "gradient": "from-orange-600 via-rose-700 to-pink-800",
       "accentColor": "#f97316",
       "file": "04_Build_Personal_Brand_with_AI.pdf",
-      "tier": "starter",
+      "tier": "pro",
       "bestseller": false,
       "new": true,
       "topics": ["Digital products", "Creator economy", "First sale", "Canva", "Email marketing"]
@@ -159,7 +159,7 @@
       "title": "AI Prompt Library",
       "description": "Access 500+ curated prompts organised by use case — marketing, product creation, sales, customer support, and more. Each prompt is tested and optimised for maximum output quality.",
       "icon": "Library",
-      "tier": "starter",
+      "tier": "pro",
       "status": "live",
       "tags": ["Marketing", "Sales", "Content", "Strategy"]
     },
@@ -183,46 +183,23 @@
     }
   ],
   "pricing": {
-    "starter": {
-      "name": "Starter",
-      "price": 999,
-      "currency": "INR",
-      "label": "One-Time Payment",
-      "description": "Everything you need to start your digital journey",
-      "features": [
-        "50+ Premium Digital Books",
-        "AI Prompt Library (500+ prompts)",
-        "Private Label Rights (Resell & Rebrand)",
-        "Lifetime Access — Pay Once, Keep Forever",
-        "New Book Releases (3 months)",
-        "Community Access",
-        "Email Support"
-      ],
-      "notIncluded": [
-        "Audiobooks Library",
-        "AI Image Generator",
-        "AI Content Writer",
-        "AI Business Planner"
-      ]
-    },
     "pro": {
-      "name": "Pro",
+      "name": "All Access",
       "price": 1999,
       "currency": "INR",
       "label": "One-Time Payment",
-      "description": "The complete AI-powered creator toolkit",
+      "description": "Everything you need to build your digital empire",
       "popular": true,
       "features": [
-        "Everything in Starter",
+        "50+ Premium Digital Books",
         "20+ Premium Audiobooks",
-        "AI Image Generator",
-        "AI Content Writer",
-        "AI Business Planner (Coming Soon)",
-        "AI Social Media Kit (Coming Soon)",
-        "New Book & Audiobook Releases Forever",
-        "Request New Products",
-        "Priority Support",
-        "Resell Rights Included"
+        "AI Content Writer (Llama 3.1)",
+        "AI Image Generator (FLUX.1)",
+        "AI Prompt Library (500+ prompts)",
+        "Private Label Rights — Resell & Rebrand",
+        "Lifetime Access — Pay Once, Keep Forever",
+        "New Books & Audiobooks Added Weekly",
+        "Priority Support"
       ]
     }
   }

@@ -8,7 +8,7 @@ export async function POST(req: NextRequest) {
     const { data: { user } } = await supabase.auth.getUser()
     if (!user) return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
 
-    // Pro plan only
+    // Active plan check
     const { data: profile } = await supabase
       .from('profiles')
       .select('plan')
@@ -16,7 +16,7 @@ export async function POST(req: NextRequest) {
       .single()
 
     if (profile?.plan !== 'pro') {
-      return NextResponse.json({ error: 'Pro plan required' }, { status: 403 })
+      return NextResponse.json({ error: 'Active plan required' }, { status: 403 })
     }
 
     const { prompt, width = 1024, height = 1024, style } = await req.json()

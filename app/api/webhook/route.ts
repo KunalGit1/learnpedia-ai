@@ -34,15 +34,7 @@ export async function POST(request: Request) {
         status: 'completed',
       })
 
-      // Update their profile plan (upgrade to pro if applicable)
-      const { data: profile } = await supabase
-        .from('profiles')
-        .select('plan')
-        .eq('id', userId)
-        .single()
-
-      const newPlan = plan === 'pro' ? 'pro' : (profile?.plan === 'pro' ? 'pro' : 'starter')
-      await supabase.from('profiles').update({ plan: newPlan }).eq('id', userId)
+      await supabase.from('profiles').update({ plan: 'pro' }).eq('id', userId)
     } else if (userEmail) {
       // Guest checkout — store by email, user will claim on sign up
       await supabase.from('purchases').upsert({
