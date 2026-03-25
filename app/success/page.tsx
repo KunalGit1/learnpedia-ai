@@ -1,16 +1,11 @@
 'use client'
 
 import { Suspense } from 'react'
-import { useSearchParams } from 'next/navigation'
 import Link from 'next/link'
-import { CheckCircle, BookOpen, Crown, ArrowRight, Sparkles } from 'lucide-react'
+import { CheckCircle, BookOpen, Crown, ArrowRight, Sparkles, Headphones } from 'lucide-react'
 import { motion } from 'framer-motion'
 
 function SuccessContent() {
-  const searchParams = useSearchParams()
-  const plan = searchParams.get('plan') ?? 'starter'
-  const isPro = plan === 'pro'
-
   return (
     <main className="bg-background min-h-screen flex items-center justify-center px-6">
       <div className="orb w-[400px] h-[400px] bg-emerald-700/15 top-0 left-1/2 -translate-x-1/2" />
@@ -28,8 +23,8 @@ function SuccessContent() {
 
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }}>
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass border border-emerald-500/20 text-sm text-emerald-300 font-medium mb-5">
-            {isPro ? <Crown className="w-4 h-4" /> : <Sparkles className="w-4 h-4" />}
-            {isPro ? 'Pro Member' : 'Starter Member'} — Activated!
+            <Crown className="w-4 h-4" />
+            All Access — Activated!
           </div>
 
           <h1 className="text-4xl md:text-5xl font-black text-white mb-4 leading-tight">
@@ -37,10 +32,7 @@ function SuccessContent() {
           </h1>
 
           <p className="text-slate-400 text-lg mb-8 leading-relaxed">
-            Your payment was successful. You now have lifetime access to{' '}
-            {isPro
-              ? '50+ books, 20+ audiobooks, and all AI tools.'
-              : '50+ premium digital books and the AI Prompt Library.'}
+            Your payment was successful. You now have lifetime access to 50+ books, 20+ audiobooks, and all AI tools.
           </p>
 
           {/* What's unlocked */}
@@ -49,12 +41,10 @@ function SuccessContent() {
             <ul className="space-y-3">
               {[
                 { icon: BookOpen, text: '50+ Premium Digital Books', color: 'text-violet-400' },
+                { icon: Headphones, text: '20+ Premium Audiobooks', color: 'text-blue-400' },
+                { icon: Sparkles, text: 'AI Content Writer (Llama 3.1)', color: 'text-pink-400' },
+                { icon: Sparkles, text: 'AI Image Generator (FLUX.1)', color: 'text-emerald-400' },
                 { icon: Sparkles, text: 'AI Prompt Library (500+ prompts)', color: 'text-amber-400' },
-                ...(isPro ? [
-                  { icon: BookOpen, text: '20+ Premium Audiobooks', color: 'text-blue-400' },
-                  { icon: Sparkles, text: 'AI Image Generator', color: 'text-emerald-400' },
-                  { icon: Sparkles, text: 'AI Content Writer', color: 'text-pink-400' },
-                ] : []),
               ].map(({ icon: Icon, text, color }, i) => (
                 <li key={i} className="flex items-center gap-3 text-sm text-slate-300">
                   <div className="w-6 h-6 rounded-lg bg-white/5 flex items-center justify-center flex-shrink-0">

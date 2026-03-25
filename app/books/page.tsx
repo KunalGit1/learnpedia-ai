@@ -101,7 +101,7 @@ export default function BooksPage() {
         <div className="mt-16 text-center">
           <p className="text-slate-500 text-sm mb-4">Showing 5 of 50+ books. Unlock all with membership.</p>
           <Link href="/pricing" className="btn-primary inline-flex text-sm px-8 py-3.5">
-            <span className="relative z-10">Unlock All 50+ Books from ₹999</span>
+            <span className="relative z-10">Get All Access — ₹1,999</span>
             <ArrowRight className="w-4 h-4 relative z-10" />
           </Link>
         </div>

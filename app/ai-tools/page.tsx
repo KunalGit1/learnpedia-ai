@@ -42,7 +42,6 @@ export default function AIToolsPage() {
           {products.aiTools.map((tool) => {
             const Icon = iconMap[tool.icon] || Sparkles
             const isComingSoon = tool.status === 'coming-soon'
-            const isPro = tool.tier === 'pro'
 
             return (
               <div
@@ -56,14 +55,9 @@ export default function AIToolsPage() {
                       Coming Soon
                     </span>
                   )}
-                  {isPro && !isComingSoon && (
-                    <span className="flex items-center gap-1 text-[10px] font-bold px-2.5 py-1 rounded-full bg-amber-500/15 text-amber-400 border border-amber-400/20">
-                      <Lock className="w-2.5 h-2.5" /> Pro
-                    </span>
-                  )}
-                  {!isPro && !isComingSoon && (
+                  {!isComingSoon && (
                     <span className="text-[10px] font-bold px-2.5 py-1 rounded-full bg-emerald-500/15 text-emerald-400 border border-emerald-400/20">
-                      Starter+
+                      Included
                     </span>
                   )}
                 </div>
@@ -84,8 +78,8 @@ export default function AIToolsPage() {
                 </div>
 
                 {!isComingSoon ? (
-                  <Link href="/pricing" className="flex items-center gap-2 text-sm text-violet-400 hover:text-violet-300 font-semibold transition-colors">
-                    {isPro ? 'Unlock with Pro' : 'Available in Starter'} <ArrowRight className="w-4 h-4" />
+                  <Link href="/checkout" className="flex items-center gap-2 text-sm text-violet-400 hover:text-violet-300 font-semibold transition-colors">
+                    Get All Access <ArrowRight className="w-4 h-4" />
                   </Link>
                 ) : (
                   <span className="text-sm text-slate-600 font-semibold">Notify me when ready →</span>
@@ -103,13 +97,10 @@ export default function AIToolsPage() {
             Get full access to all AI tools plus 50+ digital books and 20+ audiobooks. Everything for one lifetime payment.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="/checkout?plan=pro" className="btn-primary text-sm px-8 py-4 inline-flex">
+            <Link href="/checkout" className="btn-primary text-sm px-8 py-4 inline-flex">
               <Sparkles className="w-4 h-4 relative z-10" />
-              <span className="relative z-10">Get Pro — ₹1,999</span>
+              <span className="relative z-10">Get All Access — ₹1,999</span>
               <ArrowRight className="w-4 h-4 relative z-10" />
-            </Link>
-            <Link href="/checkout?plan=starter" className="btn-ghost text-sm px-8 py-4 inline-flex">
-              Starter (Prompt Library) — ₹999
             </Link>
           </div>
         </div>

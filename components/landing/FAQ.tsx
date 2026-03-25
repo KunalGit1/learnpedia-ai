@@ -26,8 +26,8 @@ const faqs = [
     a: 'None at all. Our AI tools are designed to be simple — just type what you need and get results instantly. No coding, no technical setup, no complicated interfaces. If you can type a sentence, you can use our AI tools.',
   },
   {
-    q: 'What is the difference between Starter and Pro plans?',
-    a: 'Starter (₹999) gives you 50+ digital books, the AI Prompt Library, and 3 months of new releases. Pro (₹1,999) adds 20+ audiobooks, the AI Image Generator, AI Content Writer, new releases forever, and priority support. Both include full PLR and resell rights.',
+    q: 'What is included in the All Access plan?',
+    a: 'Everything — 50+ premium digital books, 20+ audiobooks, AI Content Writer, AI Image Generator, AI Prompt Library (500+ prompts), Private Label Rights (resell & rebrand), new books and audiobooks added weekly, and priority support. One payment, lifetime access.',
   },
   {
     q: 'How quickly do I get access after payment?',

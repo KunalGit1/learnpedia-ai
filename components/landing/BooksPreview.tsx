@@ -135,7 +135,7 @@ export default function BooksPreview() {
             </div>
           </div>
           <Link href="/pricing" className="btn-primary text-sm py-3 px-6 whitespace-nowrap">
-            <span className="relative z-10">Get All 50+ Books — ₹999</span>
+            <span className="relative z-10">Get All 50+ Books — ₹1,999</span>
             <ArrowRight className="w-4 h-4 relative z-10" />
           </Link>
         </motion.div>

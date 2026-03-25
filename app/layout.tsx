@@ -8,7 +8,7 @@ const inter = Inter({ subsets: ['latin'], variable: '--font-geist-sans' })
 export const metadata: Metadata = {
   title: 'Learnpedia.ai — The AI-Powered Encyclopedia for Modern Entrepreneurs',
   description:
-    '50+ Premium Digital Books, 20+ Audiobooks & AI Tools to help you build, brand & scale your digital empire. Lifetime access from ₹999.',
+    '50+ Premium Digital Books, 20+ Audiobooks & AI Tools to help you build, brand & scale your digital empire. One-time lifetime access — ₹1,999.',
   keywords: [
     'digital books', 'PLR ebooks', 'AI tools', 'audiobooks', 'online business',
     'digital products', 'entrepreneur resources', 'passive income', 'AI education',

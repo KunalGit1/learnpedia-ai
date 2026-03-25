@@ -22,7 +22,7 @@ export default function TermsPage() {
 
           <section>
             <h2 className="text-lg font-bold text-white mb-3">2. Description of Service</h2>
-            <p>Learnpedia.ai is a digital product library that provides access to ebooks, audiobooks, and AI tools. We offer one-time lifetime access plans (Starter and Pro) that grant you access to our digital content library upon purchase.</p>
+            <p>Learnpedia.ai is a digital product library that provides access to ebooks, audiobooks, and AI tools. We offer a one-time lifetime access plan that grants you full access to our digital content library upon purchase.</p>
           </section>
 
           <section>

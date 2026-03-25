@@ -111,7 +111,7 @@ export default function AIToolsSection() {
             <span className="relative z-10">Unlock All AI Tools — ₹1,999</span>
             <ArrowRight className="w-4 h-4 relative z-10" />
           </Link>
-          <p className="text-slate-600 text-sm mt-3">Prompt Library included in Starter (₹999)</p>
+          <p className="text-slate-600 text-sm mt-3">7-day money-back guarantee · Pay once, own forever</p>
         </motion.div>
       </div>
     </section>

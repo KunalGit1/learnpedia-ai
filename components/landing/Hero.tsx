@@ -63,7 +63,7 @@ export default function Hero() {
         >
           50+ Premium Digital Books, 20+ Audiobooks & AI Tools — everything you need to
           build, brand & scale your digital empire.{' '}
-          <span className="text-violet-400 font-semibold">Lifetime access from ₹999.</span>
+          <span className="text-violet-400 font-semibold">One-time lifetime access — ₹1,999.</span>
         </motion.p>
 
         {/* CTAs */}

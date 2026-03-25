@@ -179,7 +179,7 @@ export default function LoginPage() {
         <p className="text-center text-slate-600 text-sm mt-6">
           {mode === 'login' ? "Don't have an account? " : 'Already have an account? '}
           <button onClick={() => setMode(mode === 'login' ? 'signup' : 'login')} className="text-violet-400 hover:text-violet-300 font-semibold transition-colors">
-            {mode === 'login' ? 'Get access from ₹999' : 'Sign in'}
+            {mode === 'login' ? 'Create an account' : 'Sign in'}
           </button>
         </p>
 

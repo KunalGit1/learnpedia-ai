@@ -35,7 +35,7 @@ const features = [
   {
     icon: RefreshCw,
     title: 'New Releases Every Week',
-    description: 'The library never stops growing. Get access to every new book and audiobook added — forever on Pro, or 3 months on Starter.',
+    description: 'The library never stops growing. Get access to every new book and audiobook added — forever, included with your lifetime plan.',
     color: 'from-pink-600 to-rose-700',
     glow: 'rgba(236,72,153,0.2)',
   },
